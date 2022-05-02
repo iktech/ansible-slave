@@ -7,12 +7,12 @@ RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noar
       ansible \
       openssh \
       git \
-      python-pip \
-      python-devel \
+      python36-pip \
+      python36-devel \
       postgresql-devel \
       gcc \
-      python-devel \
- && pip install psycopg2 \
+      python36-devel \
+ && pip3 install psycopg2 \
             Jinja2
 
 CMD [ "ansible-playbook", "--version" ]
