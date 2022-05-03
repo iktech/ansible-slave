@@ -1,18 +1,16 @@
-FROM centos:centos7.9.2009
+FROM ubuntu:22.04
 
 LABEL maintainer='Igor Kolomiyets <igor.kolomiyets@iktech.io>'
 
-RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y \
- && yum install -y \
-      ansible \
-      openssh \
+RUN apt-get update \ 
+ && apt-get upgrade -y \
+ && apt-get install -y \
+      python3-pip \
       git \
-      python36-pip \
-      python36-devel \
-      postgresql-devel \
-      gcc \
-      python36-devel \
- && pip3 install psycopg2 \
+      libpq-dev \
+ && pip3 install \
+            ansible \
+            psycopg2 \
             Jinja2
 
 CMD [ "ansible-playbook", "--version" ]
