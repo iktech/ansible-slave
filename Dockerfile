@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.10
 
 LABEL maintainer='Igor Kolomiyets <igor.kolomiyets@iktech.io>'
 
@@ -11,7 +11,9 @@ RUN apt-get update \
  && pip3 install \
             ansible \
             psycopg2 \
-            Jinja2
+            Jinja2 \
+            boto3 \
+            botocore
 
 CMD [ "ansible-playbook", "--version" ]
 
