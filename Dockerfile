@@ -13,7 +13,8 @@ RUN apt-get update \
             psycopg2 \
             Jinja2 \
             boto3 \
-            botocore
+            botocore \
+ && ansible-galaxy collection install community.postgresql
 
 CMD [ "ansible-playbook", "--version" ]
 
