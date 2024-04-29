@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:24.04
 
 LABEL maintainer='Igor Kolomiyets <igor.kolomiyets@iktech.io>'
 
@@ -8,12 +8,9 @@ RUN apt-get update \
       python3-pip \
       git \
       libpq-dev \
- && pip3 install \
-            ansible \
-            psycopg2 \
-            Jinja2 \
-            boto3 \
-            botocore \
+      ansible \
+      python3-psycopg2 \
+      python3-boto3 \
  && ansible-galaxy collection install community.postgresql
 
 CMD [ "ansible-playbook", "--version" ]
